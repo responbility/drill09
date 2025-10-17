@@ -6,16 +6,17 @@ from grass import Grass
 # Game object class here
 
 
-def handle_events():
+def handle_event(self, event):
     global running
 
-    event_list = get_events()
-    for event in event_list:
+    events = get_events()
+    for event in events:
         if event.type == SDL_QUIT:
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
-
+        else:
+            boy.handle_event(event)
 
 
 def reset_world():
